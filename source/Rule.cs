@@ -1,5 +1,6 @@
 ﻿// Copyright (C) 2022 Maxim Gumin, The MIT License (MIT)
 
+using System;
 using System.Linq;
 using System.Xml.Linq;
 using System.Collections.Generic;
@@ -17,6 +18,9 @@ class Rule
 
     public Rule(int[] input, int IMX, int IMY, int IMZ, byte[] output, int OMX, int OMY, int OMZ, int C, double p)
     {
+        if (C < 0) {
+            C += 256;
+        }
         this.input = input;
         this.output = output;
         this.IMX = IMX;
@@ -278,6 +282,6 @@ class Rule
         }
 
         double p = xelem.Get("p", 1.0);
-        return new Rule(input, IMX, IMY, IMZ, output, OMX, OMY, OMZ, gin.C, p);
+        return new Rule(input, IMX, IMY, IMZ, output, OMX, OMY, OMZ, (int)gin.C, p);
     }
 }

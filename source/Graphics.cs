@@ -20,7 +20,10 @@ static class Graphics
             bitmap.Dispose();
             return (result, width, height, 1);
         }
-        catch (Exception) { return (null, -1, -1, -1); }
+        catch (Exception e) {
+            Console.WriteLine(e.ToString());    
+            return (null, -1, -1, -1);
+        }
     }
 
     public static void SaveBitmap(int[] data, int width, int height, string filename)

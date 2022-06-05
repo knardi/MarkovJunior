@@ -36,6 +36,10 @@ class Interpreter
         }
 
         ip.grid = Grid.Load(xelem, MX, MY, MZ);
+        if (ip.grid.C < 0) {
+            Console.WriteLine("WTF");
+            Console.WriteLine("StackTrace: '{0}'", Environment.StackTrace);
+        }
         if (ip.grid == null)
         {
             Console.WriteLine("failed to load grid");

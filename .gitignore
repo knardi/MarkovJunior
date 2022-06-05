@@ -1,0 +1,8 @@
+.DS_Store
+.vs/
+MarkovJunior.csproj.user
+MarkovJunior.sln
+bin/
+libgdiplus.*
+obj/
+output/
